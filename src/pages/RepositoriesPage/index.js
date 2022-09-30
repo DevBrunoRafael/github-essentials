@@ -1,81 +1,44 @@
-import React, { useState } from 'react';
-import { Container, Sidebar, Main } from './styles';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Loading, Container, Sidebar, Main } from './styles';
 import Profile from './Profile';
 import Filter from './Filter';
 import Repositories from './Repositories';
 import getLanguages from '../../services/utils';
+import { getUser, getRepos } from '../../services/api';
 
 const RepositoriesPage = () => {
+  const { login } = useParams();
+
+  const [user, setUser] = useState();
+  const [repositories, setRepositories] = useState();
+  const [languages, setLanguages] = useState();
   const [currentLanguage, setCurrentLanguage] = useState();
+  const [loading, setLoading] = useState(true);
 
-  const user = {
-    login: 'nome login',
-    name: 'nome',
-    avatar_url: 'https://avatars.githubusercontent.com/u/88515518?v=4',
-    followers: 1,
-    following: 2,
-    company: 'trabalho',
-    blog: 'blog',
-    location: 'localidade',
-  };
+  useEffect(() => {
+    const loadData = async () => {
+      const [userResponse, reposResponse] = await Promise.all([
+        getUser(login),
+        getRepos(login),
+      ]);
 
-  const repos = [
-    {
-      id: 1,
-      name: 'repo 1',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'Java',
-    },
-    {
-      id: 2,
-      name: 'repo 2',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'Html',
-    },
-    {
-      id: 3,
-      name: 'repo 3',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'CSS',
-    },
-    {
-      id: 4,
-      name: 'repo 4',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'JavaScript',
-    },
-    {
-      id: 6,
-      name: 'repo 5',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'typescript',
-    },
-    {
-      id: 7,
-      name: 'repo 6',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'ScSS',
-    },
-    {
-      id: 8,
-      name: 'repo 7',
-      description: 'descrição',
-      html_url: 'https://google.com',
-      language: 'Java',
-    },
-  ];
+      setUser(userResponse.data);
+      setRepositories(reposResponse.data);
+      setLanguages(getLanguages(reposResponse.data));
+      setLoading(false);
+    };
 
-  const languages = getLanguages(repos);
+    loadData();
+  }, []);
 
   const onFilterClick = (language) => {
     setCurrentLanguage(language);
   };
+
+  if (loading) {
+    return <Loading>Carregando...</Loading>;
+  }
 
   return (
     <Container>
@@ -88,7 +51,10 @@ const RepositoriesPage = () => {
         />
       </Sidebar>
       <Main>
-        <Repositories repositories={repos} currentLanguage={currentLanguage} />
+        <Repositories
+          repositories={repositories}
+          currentLanguage={currentLanguage}
+        />
       </Main>
     </Container>
   );

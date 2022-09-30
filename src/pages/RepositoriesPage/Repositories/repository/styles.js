@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const Name = styled.h3`
   font-size: ${(props) => props.theme.fontSizes.large};
-  font-weight: normal;
+  font-weight: bolder;
 `;
 
 export const Description = styled.p`

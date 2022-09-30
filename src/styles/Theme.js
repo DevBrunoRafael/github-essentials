@@ -47,7 +47,7 @@ const theme = {
   },
   fonts: ['Open Sans', 'Arial', 'Helvetica', 'sans-serif'].join(','),
   fontSizes: {
-    small: '.8rem',
+    small: '.7rem',
     normal: '1.2rem',
     large: '1.2rem',
     title: '1.3rem',

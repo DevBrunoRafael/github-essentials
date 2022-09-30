@@ -30,3 +30,10 @@ export const Main = styled.section`
     padding: 40px 20px;
   }
 `;
+
+export const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
