@@ -8,6 +8,7 @@ export const Container = styled.div`
   border-left: 3px solid
     ${(props) => props.color || props.theme.colors.champagneDark};
   padding: 1rem;
+  border-radius: 0.7rem;
   transition: 0.3s;
 
   position: relative;

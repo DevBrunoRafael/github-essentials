@@ -7,7 +7,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem 0;
+  padding-top: 1rem;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
     flex-direction: row;
@@ -18,7 +18,7 @@ export const Header = styled.div`
 export const Avatar = styled.img`
   align-self: center;
   border-radius: 50%;
-  width: 70%;
+  width: 60%;
   margin-bottom: 1rem;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
@@ -43,8 +43,7 @@ export const Name = styled.h2`
 `;
 
 export const Inner = styled.div`
-  padding: 1rem 0;
-
+  padding-top: 1.5rem;
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
     display: none;
   }
@@ -54,6 +53,7 @@ export const Data = styled.p`
   display: flex;
   align-items: center;
   line-height: 1.5;
+  font-size: 0.9rem;
 
   svg {
     margin-right: 10px;

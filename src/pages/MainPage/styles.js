@@ -9,6 +9,7 @@ export const Container = styled.div`
   text-align: center;
   min-height: 100vh;
   padding: 0 2rem;
+  margin: -4rem;
 `;
 
 export const Logo = styled.img`
@@ -25,7 +26,7 @@ export const Form = styled.div`
   max-width: 583px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
 `;
 
 export const Input = styled.input`
@@ -34,11 +35,15 @@ export const Input = styled.input`
   height: 64px;
   line-height: 64px;
   border: none;
+  border-radius: 50px;
   font-size: 24px;
-  margin-right: 24px;
+  /* margin-right: 24px; */
   padding: 0 24px;
 
+  position: relative;
+
   &::placeholder {
+    padding-left: 0.4rem;
     color: ${(props) => props.theme.colors.metalDark};
   }
 `;
@@ -51,8 +56,12 @@ export const Button = styled(Link)`
 
   width: 80px;
   height: 64px;
-  border: 3px solid ${(props) => props.theme.colors.text};
-  transition: background 0.3s;
+  /* border: 3px solid ${(props) => props.theme.colors.text}; */
+  transition: background 0.2s;
+
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: absolute;
 
   &:hover {
     background: ${(props) => props.theme.colors.container};

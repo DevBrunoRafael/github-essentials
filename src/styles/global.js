@@ -8,6 +8,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+
   html, body, #root {
     min-height: 100%;
   }
