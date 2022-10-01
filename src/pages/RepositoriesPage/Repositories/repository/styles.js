@@ -10,11 +10,18 @@ export const Container = styled.div`
   padding: 1rem;
   border-radius: 0.7rem;
   transition: 0.3s;
+  overflow: hidden;
 
   position: relative;
 
   &:hover {
     transform: scale(1.12);
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 `;
 

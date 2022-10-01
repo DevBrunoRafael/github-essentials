@@ -16,10 +16,10 @@ const Filter = ({ languages, currentLanguage, onClick }) => {
   ));
 
   return (
-    <Container>
-      {selectors}
+    <>
+      <Container>{selectors}</Container>
       <Cleaner onClick={() => onClick && onClick(undefined)}>Limpar</Cleaner>
-    </Container>
+    </>
   );
 };
 

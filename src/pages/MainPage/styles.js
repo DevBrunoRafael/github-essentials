@@ -10,6 +10,11 @@ export const Container = styled.div`
   min-height: 100vh;
   padding: 0 2rem;
   margin: -4rem;
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
+    margin: 0;
+    margin-top: -7rem;
+  }
 `;
 
 export const Logo = styled.img`

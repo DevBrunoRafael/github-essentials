@@ -29,8 +29,14 @@ export const Avatar = styled.img`
   }
 `;
 
+export const User = styled.div``;
+
 export const Login = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.title};
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
+    margin: 0 0 0.2rem;
+  }
 `;
 
 export const Name = styled.h2`
@@ -38,7 +44,7 @@ export const Name = styled.h2`
   font-weight: normal;
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
-    display: none;
+    font-size: smaller;
   }
 `;
 
@@ -57,5 +63,16 @@ export const Data = styled.p`
 
   svg {
     margin-right: 10px;
+  }
+`;
+
+export const Link = styled.a`
+  line-height: 1.5;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: #1265ec;
   }
 `;

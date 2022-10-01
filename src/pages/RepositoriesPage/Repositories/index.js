@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from './styles';
+import { Container, Title } from './styles';
 import Repository from './repository';
 
 const Repositories = ({ repositories, currentLanguage }) => {
@@ -13,7 +13,7 @@ const Repositories = ({ repositories, currentLanguage }) => {
 
   return (
     <>
-      <h3>Repositories</h3>
+      <Title>Repositories</Title>
       <Container>{repos}</Container>
     </>
   );

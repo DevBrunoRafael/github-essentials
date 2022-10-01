@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MdGroup, MdLocationCity, MdWork, MdLink } from 'react-icons/md';
-import { Container, Header, Avatar, Login, Name, Inner, Data } from './styles';
+import {
+  Container,
+  Header,
+  Avatar,
+  Login,
+  Name,
+  Inner,
+  Data,
+  User,
+  Link,
+} from './styles';
 
 const Profile = ({ user }) => (
   <Container>
     <Header>
       <Avatar src={user.avatar_url} />
-      <Login>{user.login}</Login>
-      <Name>{user.name}</Name>
+      <User>
+        <Login>{user.login}</Login>
+        <Name>{user.name}</Name>
+      </User>
       <Inner>
         <Data>
           <MdGroup size={20} />
@@ -29,9 +41,9 @@ const Profile = ({ user }) => (
         {user.company && (
           <Data>
             <MdLink size={20} />
-            <a href={`\\${user.blog}`} target="_blank" rel="noreferrer">
+            <Link href={`\\${user.blog}`} target="_blank">
               {user.blog}
-            </a>
+            </Link>
           </Data>
         )}
       </Inner>

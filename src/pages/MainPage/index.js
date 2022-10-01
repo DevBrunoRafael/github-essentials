@@ -15,6 +15,7 @@ const MainPage = () => {
           placeholder="Informe o usuário..."
           value={login}
           onChange={(event) => setLogin(event.target.value)}
+          spellCheck="false"
         />
         <Button to={`${login}/repositories`}>
           <MdSearch size={42} />

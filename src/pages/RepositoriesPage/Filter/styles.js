@@ -47,11 +47,12 @@ export const Selector = styled.button`
 `;
 
 export const Cleaner = styled.button`
+  width: 100%;
   background-color: transparent;
   color: ${(props) => props.theme.colors.text};
   border: none;
   text-align: center;
-  padding: 1rem;
+  padding: 0.5rem 1rem 2rem;
 
   &:hover {
     color: rgba(255, 255, 255, 0.5);
@@ -59,6 +60,7 @@ export const Cleaner = styled.button`
 
   @media screen and (max-width: ${(props) => props.theme.breakpoints.md}) {
     text-align: center;
-    padding: 0 1rem;
+    padding: 0 7rem;
+    margin-bottom: 1rem;
   }
 `;
